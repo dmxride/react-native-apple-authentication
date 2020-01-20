@@ -374,6 +374,14 @@ export namespace RNAppleAuth {
     performRequest(options: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
 
     /**
+    * Perform a request to Apple Authentication services with the provided request options.
+    * Return only authorization code
+    * @param options AppleAuthRequestOptions
+    */
+    performRequestAuth(options: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
+
+
+    /**
      * Get the current @{RNAppleAuth.AppleAuthCredentialState} for the provided user identifier.
      *
      * @param user An opaque user ID associated with the AppleID used for the sign in.

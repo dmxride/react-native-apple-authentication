@@ -112,6 +112,21 @@ RCT_EXPORT_METHOD(performRequest:
   [delegates performRequestsForAuthorizationController:authorizationController];
 }
 
+RCT_EXPORT_METHOD(performRequestAuth:
+  (ASAuthorizationAppleIDRequest *) appleIdRequest
+    :(RCTPromiseResolveBlock) resolve
+    :(RCTPromiseRejectBlock) reject
+) {
+  ASAuthorizationController *authorizationController = [
+      [ASAuthorizationController alloc] initWithAuthorizationRequests:@[
+          appleIdRequest
+      ]
+  ];
+
+    resolve(authorizationController);
+}
+
+
 - (void)onCredentialRevoked {
   [self sendEventWithName:@"RNAppleAuth.onCredentialRevoked" body:[NSNull null]];
 }
